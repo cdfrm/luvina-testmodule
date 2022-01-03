@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">gift_form.gift_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Gift Form</item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+    <settings>
+        <namespace>gift_form</namespace>
+        <dataScope>data.general</dataScope>
+        <deps>
+            <dep>gift_form.gift_form_data_source</dep>
+        </deps>
+        <buttons>
+            <button name="save" class="Luvina\TestModule\Block\Form\Gift\Save"/>
+            <button name="back" class="Luvina\TestModule\Block\Form\Gift\Back"/>
+            <button name="delete" class="Luvina\TestModule\Block\Form\Gift\Delete"/>
+        </buttons>
+    </settings>
+    <dataSource name="gift_form_data_source" component="Magento_Ui/js/form/provider">
+        <settings>
+            <submitUrl path="gift/gift/save"/>
+        </settings>
+        <dataProvider class="Luvina\TestModule\Ui\DataProvider\DataProvider" name="gift_form_data_source">
+            <settings>
+                <requestFieldName>id</requestFieldName>
+                <primaryFieldName>id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <fieldset name="general" sortOrder="10">
+        <settings>
+            <label translate="true">General</label>
+        </settings>
+        <field name="id" sortOrder="0" formElement="hidden">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">id</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">ID</label>
+                <dataScope>id</dataScope>
+            </settings>
+        </field>
+        <field name="name" sortOrder="00" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">name</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>string</dataType>
+                <label translate="true">Name</label>
+                <dataScope>name</dataScope>
+            </settings>
+        </field>
+        <field name="customer" sortOrder="10" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">customer</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>string</dataType>
+                <label translate="true">Customer</label>
+                <dataScope>customer</dataScope>
+            </settings>
+        </field>
+        <field name="email" sortOrder="20" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">email</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>int</dataType>
+                <label translate="true">Customer Email</label>
+                <dataScope>email</dataScope>
+            </settings>
+        </field>
+        <field name="price" sortOrder="30" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">price</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>float</dataType>
+                <label translate="true">Price</label>
+                <dataScope>price</dataScope>
+            </settings>
+        </field>
+    </fieldset>
+</form>

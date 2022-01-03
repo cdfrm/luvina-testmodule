@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="gifts" resource="default" engine="innodb" comment="Gifts Table">
+        <column xsi:type="int" name="id" padding="10" unsigned="true" nullable="false" identity="true" comment="Gifts ID"/>
+        <column xsi:type="varchar" name="name" nullable="false" length="255" default="simple" comment="Test Name"/>
+        <column xsi:type="varchar" name="customer" nullable="false" length="255" comment="Customer Name"/>
+        <column xsi:type="varchar" name="email" nullable="false" length="255" comment="Customer Email"/>
+        <column xsi:type="decimal" name="price" precision="20" scale="2" unsigned="true" nullable="false" comment="Price"/>
+        <column xsi:type="timestamp" name="created_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP" comment="Created Time"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY"><column name="id"/>
+        </constraint>
+        <index referenceId="TEST_FULlTEXT_FILTER" indexType="fulltext">
+            <column name="name"/>
+            <column name="customer"/>
+            <column name="email"/>
+        </index>
+        <index referenceId="GIFTS_GIFTS_ID" indexType="btree">
+            <column name="id"/>
+        </index>
+    </table>
+</schema>

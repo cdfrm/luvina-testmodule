@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Luvina_TestModule::menu" title="Gifts" module="Luvina_TestModule" sortOrder="10" resource="Luvina_TestModule::menu"/>
+        <add id="Luvina_TestModule::manage" sortOrder="10" title="Gifts Manage" module="Luvina_TestModule"
+             parent="Luvina_TestModule::menu" resource="Luvina_TestModule::manage" translate="title"
+             action="gift/gift/index"/>
+    </menu>
+</config>
